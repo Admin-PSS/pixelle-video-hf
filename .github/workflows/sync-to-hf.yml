@@ -9,13 +9,19 @@ jobs:
   sync-to-hub:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          lfs: true
+      
+      - name: Configure Git
+        run: |
+          git config --global user.email "admin@pixelle.com"
+          git config --global user.name "Auto-Sync"
       
       - name: Push to HF Spaces
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git push https://pyisoe:$HF_TOKEN@huggingface.co/spaces/pyisoe/pixelle-video-hf main
+          git remote add hf https://pyisoe:${HF_TOKEN}@huggingface.co/spaces/pyisoe/pixelle-video-hf.git
+          git push --force hf main
+        continue-on-error: true
