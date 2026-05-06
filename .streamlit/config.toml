@@ -1,0 +1,13 @@
+[theme]
+primaryColor = "#FF6B6B"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F5F5F5"
+textColor = "#262730"
+
+[server]
+maxUploadSize = 500
+enableXsrfProtection = true
+timeZone = "UTC"
+
+[client]
+toolbarMode = "minimal"
