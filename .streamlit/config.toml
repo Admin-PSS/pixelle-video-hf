@@ -7,7 +7,6 @@ textColor = "#262730"
 [server]
 maxUploadSize = 500
 enableXsrfProtection = true
-timeZone = "UTC"
 
 [client]
 toolbarMode = "minimal"
