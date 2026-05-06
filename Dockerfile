@@ -2,10 +2,13 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
+# Install git and other dependencies
+RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+
 # Copy all files
 COPY . .
 
-# Install dependencies
+# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose port
